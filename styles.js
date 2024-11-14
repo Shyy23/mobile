@@ -5,9 +5,15 @@ export const color = {
     first: 'hsl(255, 100%, 70%)',
     shadow: 'hsl(255, 70%, 60%)',
     hover: 'hsl(255, 70%, 40%)',
-    line: 'hsl(255, 100%, 80%)'
+    line: 'hsl(255, 100%, 80%)',
+    card: 'hsl(255, 90%, 70%)',
+    cardShadow: 'hsl(255, 70%, 80%)',
 };
-
+export const font = {
+    font_bold: '600',
+    font_semi_bold: '500',
+    font_medium: '400',
+};
 const styles = StyleSheet.create({
    container:{
     backgroundColor: color.white,
@@ -92,7 +98,75 @@ const styles = StyleSheet.create({
    active:{
     fontWeight: '600',
     fontSize: 15
+   },
+   cardWrapper:{
+    width: '90%',
+    paddingTop: 5,
+    gap: 8
+   },
+   card:{
+    width: '100%',
+    backgroundColor: color.card,
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 5,
+    zIndex: 10,
+    gap: 10
+
+   },
+   contents:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 15,
+    
+   },
+   content:{
+    flexDirection: 'row',
+    columnGap: 10,
+    alignItems: 'center'
+   },
+   info:{
+    flexShrink: 1,
+    rowGap: 2
+   },
+   img:{
+    width: 100,
+    height: 100,
+    borderRadius: 5,
+   },
+   singer:{
+    marginTop:-5,
+    fontSize: 10
+    
+   },
+   description:{
+    fontSize: 12,
+    textAlign: 'justify'
+   },
+   judulMusic:{
+    fontSize: 15,
+    fontWeight: font.font_bold
+    
+   },
+
+   cardShadow:{
+    width: '100%',
+    height:0,
+    backgroundColor: color.cardShadow,
+    position:'absolute',
+    
+    bottom:0,
+    elevation: 15,
+    zIndex: 1,
+   },
+   btnGroup:{
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+
    }
+
    
 });
 
