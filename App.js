@@ -1,222 +1,102 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, Image, Button, ScrollView, StyleSheet, Pressable, Alert,  TouchableOpacity} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, Text, Image, Button, TouchableOpacity, Pressable, ScrollView,StatusBar } from 'react-native';
+
+import styles,  {color} from './styles';
 import AntDesign from '@expo/vector-icons/AntDesign';
-
-
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const App = () => {
-  const[warna, setWarna]=useState('#FFFF50');
-  useEffect(() => {},[warna]);
-  const changeWarna = () => {
-    setWarna((prevWarna) => (prevWarna === "#FFFF50" ? "#036580" : "#FFFF50")  );
-  }
 
-  const changeWarna2 = () => {
-    setWarna('#22DD33');
+  const [bg, setBg] = useState('transparent');
+  const [bg2, setBg2] = useState('transparent');
+  const handleBgIn = () => {
+    setBg(color.hover);
   }
-  const changeWarna3 = () => {
-    setWarna('#EE6742');
+  const handleBgOut = () => {
+    setBg('transparent');
   }
-  const changeWarna4 = () => {
-    setWarna('#222222');
+  const handleBgIn2 = () => {
+    setBg2(color.hover);
   }
-  const changeWarna5 = () => {
-    setWarna('#6070FF');
-  }
-  const changeWarna6 = () => {
-    setWarna('#0054dd');
-  }
-  const changeWarna7 = () => {
-    setWarna('#22ff00');
-  }
-  const changeWarna8 = () => {
-    setWarna('#dddddd');
+  const handleBgOut2 = () => {
+    setBg2('transparent');
   }
  return (
-  <ScrollView
-  contentContainerStyle={styles.contentContainer}
-  >
   <View
-  style={[styles.container,  {backgroundColor: warna}]}
+  style={styles.container}
   >
-
-
-   
-
-  <View 
-  style={styles.row}
-  >
-      <TouchableOpacity
-      activeOpacity={0.5}
-      onPress={() => {changeWarna()}}
+    <View
+    style={styles.header}
+    >
+      <View
+      style={styles.headerTop}
       >
-        <View 
-        style={styles.button}>
-        <Text
-        style={styles.btnText}
-        >Warna 1</Text>
-        <AntDesign name="rightcircle" size={24} color="#FFFF50" />
-          
-        </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-      activeOpacity={0.5}
-      onPress={() => {changeWarna2()}}
-      >
-        <View 
-        style={styles.button}>
-        <Text
-        style={styles.btnText}
-        >Warna 2</Text>
-        <AntDesign name="rightcircle" size={24} color="#FFFF50" />
-          
-        </View>
-      </TouchableOpacity>
-
-      </View>
-  <View 
-  style={styles.row}
-  >
-      <TouchableOpacity
-      activeOpacity={0.5}
-      onPress={() => {changeWarna3()}}
-      >
-        <View 
-        style={styles.button}>
-        <Text
-        style={styles.btnText}
-        >Warna 3</Text>
-        <AntDesign name="rightcircle" size={24} color="#FFFF50" />
-          
-        </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-      activeOpacity={0.5}
-      onPress={() => {changeWarna4()}}
-      >
-        <View 
-        style={styles.button}>
-        <Text
-        style={styles.btnText}
-        >Warna 4</Text>
-        <AntDesign name="rightcircle" size={24} color="#FFFF50" />
-          
-        </View>
-      </TouchableOpacity>
-
-      </View>
-      <View 
-      style={styles.row}
-      >
-          <TouchableOpacity
-          activeOpacity={0.5}
-          onPress={() => {changeWarna5()}}
-          >
-            <View 
-            style={styles.button}>
-            <Text
-            style={styles.btnText}
-            >Warna 5</Text>
-            <AntDesign name="rightcircle" size={24} color="#FFFF50" />
-              
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-          activeOpacity={0.5}
-          onPress={() => {changeWarna6()}}
-          >
-            <View 
-            style={styles.button}>
-            <Text
-            style={styles.btnText}
-            >Warna 6</Text>
-            <AntDesign name="rightcircle" size={24} color="#FFFF50" />
-              
-            </View>
-          </TouchableOpacity>
-
-          </View>
-          
-      <View 
-      style={styles.row}
-      >
-          <TouchableOpacity
-          activeOpacity={0.5}
-          onPress={() => {changeWarna7()}}
-          >
-            <View 
-            style={styles.button}>
-            <Text
-            style={styles.btnText}
-            >Warna 7</Text>
-            <AntDesign name="rightcircle" size={24} color="#FFFF50" />
-              
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-          activeOpacity={0.5}
-          onPress={() => {changeWarna8()}}
-          >
-            <View 
-            style={styles.button}>
-            <Text
-            style={styles.btnText}
-            >Warna 8</Text>
-            <AntDesign name="rightcircle" size={24} color="#FFFF50" />
-              
-            </View>
-          </TouchableOpacity>
-
-          </View>
-
-        
       
+      <TouchableOpacity
+      activeOpacity={1}
+      onPressIn={()=>{handleBgIn()}}
+      onPressOut={()=>{handleBgOut()}}
+      >
+        <View
+        style={[styles.btn, {backgroundColor: bg}]}
+        >
+        <AntDesign name="left" size={24} color={color.white} />
+
+        </View>
+      </TouchableOpacity>
+     
+
+      <Text
+      style={styles.title}
+      >FAVORITE</Text>
+
+      <TouchableOpacity
+      activeOpacity={1}
+      onPressIn={()=>{handleBgIn2()}}
+      onPressOut={()=>{handleBgOut2()}}
+      >
+        <View
+        style={[styles.btn, {backgroundColor: bg2}]}
+        >
+         <Ionicons name="ellipsis-vertical-sharp" size={24} color={color.white} />
+
+        </View>
+      </TouchableOpacity>
+     
+      </View>
+      <View
+      style={styles.headerBottom}
+      >
+        <View style={styles.option}>
+          <Text style={styles.subtitle}>Film</Text>
+          <Text style={[styles.subtitle, styles.active]}>Music</Text>
+          <Text style={styles.subtitle}>Food</Text>
+        </View>
+        <View style={styles.line}></View>
+
+
+      </View>
+    </View>
+    <View 
+    style={styles.boxShadow}
+    >
+
+    </View>
+
+    <ScrollView
+    style={styles.contentContainer}
+    >
+      <View style={styles.content}>
+        <View style={styles.card}>
+
+        </View>
+      </View>
+    </ScrollView>
+
+
   </View>
-  </ScrollView>
  );
 };
 
-const styles = StyleSheet.create({
-contentContainer:{
-  flexGrow: 1,
-
-},
-text:{
-fontSize: 20,
-fontWeight: '600'
-},
-
-container: {
-  flex: 1,
-  justifyContent: 'center',
-  alignItems: 'center',
- 
-  paddingTop: 25,
-  gap: 25,
-},
-row:{
-flexDirection: 'row',
-gap: 20,
-},
-button: {
-backgroundColor: 'hsl(255, 100%, 70%);',
-padding: 20,
-borderRadius: 5,
-flexDirection: 'row',
-gap: 10,
-alignItems: 'center',
-justifyContent: 'space-between'
-},
-btnText: {
-color: '#FFFF50',
-fontSize: 15,
-fontWeight: '600',
-letterSpacing: -.2,
-}
-});
 
 export default App;
