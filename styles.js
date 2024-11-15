@@ -3,11 +3,11 @@ import { StyleSheet, StatusBar } from "react-native";
 export const color = {
     white: 'hsl(255, 100%, 95%)',
     first: 'hsl(255, 100%, 70%)',
-    shadow: 'hsl(255, 70%, 60%)',
+    shadow: 'rgba(117, 82, 224, 0.80)',
     hover: 'hsl(255, 70%, 40%)',
     line: 'hsl(255, 100%, 80%)',
     card: 'hsl(255, 90%, 70%)',
-    cardShadow: 'hsl(255, 70%, 80%)',
+    cardShadow: "rgba(140, 102 , 255, 0.8)",
 };
 export const font = {
     font_bold: '600',
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     backgroundColor: color.white,
     flex: 1,
    },
+
 
    header:{
     height: 150,
@@ -37,22 +38,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '100%',
-    alignItems: 'center'
+    alignItems: 'center',
+    zIndex: 100,
    },
 
-
-   boxShadow:{
-    width: '100%',
-    height:150,
-    backgroundColor: color.shadow,
-    borderBottomRightRadius: 50,
-    borderBottomLeftRadius: 50,
-    position:'absolute',
-    
-    top:3,
-    elevation: 15,
-    zIndex: 1,
-   },
+   shadowHeader: {
+    shadowColor: color.shadow, // Warna bayangan
+    shadowOffset: { width: 0, height: 4 }, // Mengatur posisi bayangan (horizontal, vertical)
+    shadowOpacity: 1, // Transparansi bayangan
+    shadowRadius: 4.65, // Radius atau tingkat blur bayangan
+    elevation: 8, // Untuk bayangan di Android
+    borderWidth: 2,
+    borderColor: color.shadow
+  },
+  
    title:{
     fontSize: 24,
     fontWeight: '600',
@@ -113,6 +112,14 @@ const styles = StyleSheet.create({
     zIndex: 10,
     gap: 10
 
+   },
+   shadowCard:{
+    shadowColor: color.cardShadow,
+    shadowOffset: {width: 3, height: 3},
+    shadowRadius: 1,
+    shadowOpacity: 0.8,
+    elevation: 15,
+    
    },
    contents:{
     flex: 1,

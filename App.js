@@ -70,6 +70,7 @@ const App = () => {
     {
       id:8,
       title: 'I Cant Hate You',
+      artist: 'Kayou',
       image: require('./assets/image/music8.jpg'),
       description: 'I Cant Hate You oleh Kayou mengungkapkan perasaan yang kompleks antara cinta dan kebencian, di mana meskipun ada rasa sakit,',
       audio: require('./assets/audio/music8.mp3')
@@ -77,6 +78,7 @@ const App = () => {
     {
       id: 9,
       title: 'An Art Gallery Could Never be as Unique as You',
+      artist: 'mrld',
       image: require('./assets/image/music9.jpg'),
       description: 'menggambarkan betapa istimewanya seseorang, melebihi keindahan dan keunikan apa pun yang dapat ditemukan di galeri seni, dengan lirik yang penuh pujian dan melodi yang lembut.',
       audio: require('./assets/audio/music9.mp3')
@@ -109,7 +111,7 @@ const App = () => {
       setSound(newSound);
       return newSound;  // Return the new sound instance
     } catch (error) {
-      console.error('Error loading audio:', error);
+      console.error('Lagi loading audio nya mas', error);
       return null;
     }
   };
@@ -136,7 +138,7 @@ const App = () => {
         setIsPlaying(!isPlaying);
       }
     } catch (error) {
-      console.error('Error playing audio:', error);
+      console.error('Lagi Loading Mas Coba Lagi:', error);
     }
   };
 
@@ -165,7 +167,7 @@ const App = () => {
         console.error('Song not found');
       }
     } catch (error) {
-      console.error('Error playing audio:', error);
+      console.error('Masih di render mas coba lagi:', error);
     }
   };
 
@@ -192,7 +194,7 @@ const App = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
+      <View style={[styles.header, styles.shadowHeader]}>
         <View style={styles.headerTop}>
           <TouchableOpacity
             activeOpacity={1}
@@ -225,13 +227,13 @@ const App = () => {
           <View style={styles.line}></View>
         </View>
       </View>
-      <View style={styles.boxShadow}></View>
+
 
       <ScrollView style={styles.contentContainer}>
         <View style={styles.contents}>
           <View style={styles.cardWrapper}>
             {songs.map((song) => (
-              <View key={song.id} style={styles.card}>
+              <View key={song.id} style={[styles.card, styles.shadowCard]}>
                 <View style={styles.content}>
                   <View style={styles.img}>
                     <Image source={song.image} style={styles.img} />
